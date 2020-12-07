@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head><title>git使用</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="git使用">git使用</h1>
+
+<div><div class="toc"><div class="toc">
+<ul>
+<li><a href="#git使用">git使用</a><ul>
+<li><a href="#常用命令">常用命令</a><ul>
+<li><a href="#commit-m-message">commit -m message</a></li>
+<li><a href="#log">log</a></li>
+<li><a href="#config">config</a></li>
+<li><a href="#branch">branch</a></li>
+<li><a href="#reset">reset</a></li>
+<li><a href="#clone">clone</a></li>
+<li><a href="#rm">rm</a></li>
+</ul>
+</li>
+<li><a href="#删除github上一个库下的所有文件">删除github上一个库下的所有文件</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<h2 id="常用命令">常用命令</h2>
+
+
+
+<h3 id="commit-m-message">commit -m <em>message</em></h3>
+
+<p><code>git commit -m  <em>message</em></code> <br>
+提交，在log中会显示</p>
+
+<blockquote>
+  <p>此命令待完善</p>
+</blockquote>
+
+
+
+<h3 id="log">log</h3>
+
+
+
+<p><code>git log</code></p>
+
+<blockquote>
+  <p>显示<code>commit</code>记录，详见<a href="https://blog.csdn.net/weixin_37697277/article/details/80250879" target="_blank">此处</a>。</p>
+</blockquote>
+
+<h3 id="config">config</h3>
+
+<p><code>git config --global user.name</code></p>
+
+<blockquote>
+  <p>显示在commit记录中会出现的用户名</p>
+</blockquote>
+
+<p><code>git config --global user.name <em>newname</em></code></p>
+
+<blockquote>
+  <p>更改用户名，<em>newname</em>是新的用户名</p>
+</blockquote>
+
+<p><code>git config --global user.email</code></p>
+
+<blockquote>
+  <p>显示在commit记录中会出现的用户邮箱</p>
+</blockquote>
+
+<p><code>git config --global user.email <em>new_email</em></code></p>
+
+<blockquote>
+  <p>更改邮箱，<em>new_email</em>是新的邮箱。邮箱甚至可以不是真实邮箱</p>
+</blockquote>
+
+<p><a href="https://www.cnblogs.com/shenxiaolin/p/7896489.html" target="_blank">详见</a></p>
+
+<h3 id="branch">branch</h3>
+
+<p><code>git branch</code></p>
+
+<blockquote>
+  <p>查看当前分支，前面有*的是当前使用分支</p>
+</blockquote>
+
+<p><code>git branch -a</code></p>
+
+<blockquote>
+  <p>查看所有分支，-a中的a代表all</p>
+</blockquote>
+
+<p><a href="https://www.cnblogs.com/vae860514/p/11009787.html" target="_blank">详见</a></p>
+
+
+
+<h3 id="reset">reset</h3>
+
+<p><code>git reset --soft <em>commit _d</em></code></p>
+
+<blockquote>
+  <p>撤销<code>git log</code>中会显示的commit记录，<em>commit_id</em>是想回到的commit目标id。 <br>
+  <a href="https://blog.csdn.net/yxlshk/article/details/79944535" target="_blank">区别详见</a></p>
+</blockquote>
+
+<h3 id="clone">clone</h3>
+
+<p><code>git clone <a href="https://github.com/" target="_blank">https://github.com/</a><em>username/repository_name</em></code></p>
+
+<blockquote>
+  <p>下载远端库上的项目到本地，会创建一个名为<em>repository_name</em>的目录</p>
+</blockquote>
+
+<h3 id="rm">rm</h3>
+
+<p><code>git rm <em>-r *</em></code></p>
+
+<blockquote>
+  <p><code><em>-r</em></code>是递归指令，<code><em>*</em></code>是匹配任意文件名的正则表达式。这两个输入合起来的意思就是删除该目录下所有文件。 <br>
+  <strong>同时这个操作并不会删除不在git记录中的文件，如果删除一个不在git记录中的文件，命令会提示找不到该文件。</strong> <br>
+  <strong>对于在git记录中的文件，即从git中删除，也会实际从本地中删除。</strong></p>
+</blockquote>
+
+<h2 id="删除github上一个库下的所有文件">删除github上一个库下的所有文件</h2>
+
+<p>github网页端一次只能删除一个文件，但是有时候想删除一个库下的不少文件，包括文件夹，使用github的网页端就太麻烦了。可以使用Git命令，先将远程库clone到本地，然后修改本地的库，达到想要的效果后，上传到远端的库。 <br>
+以现在的主页dddeadfish.github.io为例，具体操作为：</p>
+
+<ol><li rel="1"><p>先从远端库上将这个项目下载下来，使用clone操作 <br>
+<code>git clone <a href="https://github.com/dddeadfish/dddeadfish.github.io" target="_blank">https://github.com/dddeadfish/dddeadfish.github.io</a> </code></p>
+
+<blockquote>
+  <p>注意这这个地址，写成<a href="https://dddeadfish.github.io" target="_blank">https://dddeadfish.github.io</a>或者<a href="https://dddeadfish/dddeadfish.github.io" target="_blank">https://dddeadfish/dddeadfish.github.io</a>这样的网址都是不对的(前者只是访问博客主页的地址)，如果不确定网址究竟是什么，可以到网页端的github库的主页，复制地址栏中的地址。</p>
+</blockquote></li>
+<li rel="2"><p>然后进入到该项目的目录里： <br>
+<code>cd dddeadfish.github.io</code></p></li>
+<li rel="3"><p>接下来使用删除操作将所有文件都删除掉： <br>
+<code>git rm -r *</code></p></li>
+<li rel="4"><p>要让这一系列删除生效，需要先提交修改： <br>
+<code>git commit -m "delete all files"</code></p></li>
+<li rel="5"><p>最后，将本地的库上传到远端库： <br>
+<code>git push origin master</code></p>
+
+<blockquote>
+  <p>这个操作上传后，就可以在远端库的提交记录中看到这次操作提交的commit了，没有push前是没有的。这一步会有两次输入密码，第一次是弹出一个图形窗口，第二次是在git CMD中输入。第二次输入的时候，输入后密码是不显示的，可以使用ctrl+v来粘贴。</p>
+</blockquote></li>
+</ol>
+
+<p><a href="https://www.php.cn/js-tutorial-379304.html" target="_blank">参考</a></p></div></body></html>��时候，输入后密码是不显示的，可以使用ctrl+v来粘贴。</p>
+</blockquote></li>
+</ol>
+
+<p><a href="https://www.php.cn/js-tutorial-379304.html" target="_blank">参考</a></p></div></body></html>
